@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-        string filePath = @"C:\Users\Марат\Desktop\A B C.txt";
+        string filePath = @"C:\Users\Марат\Downloads\fl.txt";
 
         string text = File.ReadAllText(filePath).Trim();
 
