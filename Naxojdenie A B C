@@ -1,0 +1,34 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        string filePath = @"C:\Users\Марат\Desktop\A B C.txt";
+
+        string text = File.ReadAllText(filePath).Trim();
+
+        int maxCount = 0;
+        int currentCount = 0;
+        int i = 0;
+
+        while (i < text.Length - 1)
+        {
+            string pair = text.Substring(i, 2);
+            if (pair == "AB" || pair == "CB")
+            {
+                currentCount++;
+                maxCount = Math.Max(maxCount, currentCount);
+                i += 2; // перемещаемся на 2 символа вперед
+            }
+            else
+            {
+                currentCount = 0;
+                i += 1; // перемещаемся на 1 символ вперед
+            }
+        }
+
+        Console.WriteLine("Максимальное количество идущих подряд пар AB или CB: " + maxCount);
+    }
+}
